@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Merhaba Sayın Türkan Hanım</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: url('pexels-selman-59966951-32069204.jpg') no-repeat center center fixed;
+      background-size: cover;
+      background-color: #fbe9e7;
+      color: #ffffff;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+    }
+    h1 {
+      font-size: 6vw;
+      color: #4a1c1c;
+      margin: 20px 10px 10px;
+      text-shadow: 1px 1px 3px #fff;
+    }
+    h2 {
+      font-size: 5vw;
+      color: #6d1b7b;
+      margin: 0 10px 30px;
+      text-shadow: 1px 1px 3px #fff;
+    }
+    .buttons {
+      position: relative;
+      width: 90%;
+      max-width: 320px;
+      height: 150px;
+    }
+    .yes-btn {
+      background-color: #4caf50;
+      color: white;
+      font-size: 5vw;
+      padding: 16px 32px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      width: 100%;
+      box-sizing: border-box;
+      transition: background 0.3s ease;
+    }
+    .yes-btn:hover {
+      background-color: #388e3c;
+    }
+    .no-btn {
+      position: absolute;
+      background-color: #f44336;
+      color: white;
+      font-size: 3.5vw;
+      padding: 6px 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    #confetti-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 9999;
+    }
+    iframe {
+      display: none;
+    }
+    @media (min-width: 768px) {
+      h1 { font-size: 44px; }
+      h2 { font-size: 34px; }
+      .yes-btn { font-size: 28px; }
+      .no-btn { font-size: 14px; }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="confetti-canvas"></canvas>
+  <h1>Merhaba Sayın Türkan Hanım</h1>
+  <h2>Yarın görüşüyor muyuz</h2>
+  <div class="buttons">
+    <button class="yes-btn" onclick="showConfetti()">Evet görüşüyoruz</button>
+    <button class="no-btn" id="noBtn">Hayır görüşmüyoruz</button>
+  </div>
+
+  <!-- YouTube şarkısı otomatik oynar -->
+  <iframe width="0" height="0"
+    src="https://www.youtube.com/embed/C2ccl-cjNcA?autoplay=1&loop=1&playlist=C2ccl-cjNcA"
+    title="YouTube music" frameborder="0"
+    allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script>
+    const noBtn = document.getElementById('noBtn');
+    const container = document.querySelector('.buttons');
+
+    noBtn.addEventListener('mouseover', () => {
+      const x = Math.random() * (container.clientWidth - noBtn.clientWidth);
+      const y = Math.random() * (container.clientHeight - noBtn.clientHeight);
+      noBtn.style.left = `${x}px`;
+      noBtn.style.top = `${y}px`;
+    });
+
+    function showConfetti() {
+      confetti({
+        particleCount: 150,
+        spread: 80,
+        origin: { y: 0.6 }
+      });
+    }
+  </script>
+</body>
+</html>
